@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('timestamp', models.DateField(default=datetime.datetime(2019, 12, 10, 15, 49, 50, 843292))),
                 ('comment', models.TextField(blank=True)),
-                ('laptop', models.ForeignKey(on_delete='CASCADE', to='project.Laptop')),
+                ('laptop', models.ForeignKey(on_delete=models.CASCADE, to='project.Laptop')),
             ],
         ),
     ]

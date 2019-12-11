@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('phone', models.TextField(blank=True)),
                 ('dateIn', models.DateField(default=datetime.datetime(2019, 12, 10, 22, 3, 36, 411107))),
                 ('dateOut', models.DateTimeField(default=datetime.datetime(2020, 1, 9, 22, 3, 36, 411107))),
-                ('laptop', models.ForeignKey(on_delete='CASCADE', to='project.Laptop')),
+                ('laptop', models.ForeignKey(on_delete=models.CASCADE, to='project.Laptop')),
             ],
         ),
         migrations.DeleteModel(

@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('timestamp', models.TimeField(auto_now=True)),
                 ('message', models.TextField(blank=True)),
-                ('profile', models.ForeignKey(on_delete='CASCADE', to='mini_fb.Profile')),
+                ('profile', models.ForeignKey(on_delete=models.CASCADE, to='mini_fb.Profile')),
             ],
         ),
     ]

@@ -35,7 +35,7 @@ class Student(models.Model):
     phone = models.TextField(blank = True)
     dateIn = models.DateField(default = datetime.now())
     dateOut = models.DateTimeField(default=datetime.now()+timedelta(days=30))
-    laptop = models.ForeignKey('Laptop',on_delete = "CASCADE")
+    laptop = models.ForeignKey('Laptop',on_delete =models.CASCADE)
 
 
     def __str__(self):

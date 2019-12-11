@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='quote',
             name='person',
-            field=models.ForeignKey(default=1, on_delete='CASCADE', to='quotes.Person'),
+            field=models.ForeignKey(default=1, on_delete=models.CASCADE, to='quotes.Person'),
             preserve_default=False,
         ),
     ]
