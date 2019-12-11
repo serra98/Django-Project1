@@ -26,7 +26,7 @@ class Laptop(models.Model):
 
 
 class Student(models.Model):
-    '''encapsulate the idea of a mini_fb:'''
+    '''encapsulate the idea of a student:'''
 
     #data attributes of a mini_fb:
     name = models.TextField(blank = True)
@@ -43,7 +43,7 @@ class Student(models.Model):
         return '%s, %s ,%s ,%s' % (self.name, self.student_id ,self.email,self.phone)
 
     def get_absolute_url(self):
-        '''return a URL to display this profile object.'''
+        '''return a URL to display this student object.'''
         return reverse("show_student_page",kwargs ={"pk": self.pk})
 
 

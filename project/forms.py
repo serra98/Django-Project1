@@ -1,5 +1,8 @@
 from django import forms
 from .models import Laptop, Student
+
+#form for creating and updating student information 
+
 class CreateStudentForm(forms.ModelForm):
     '''A form to add new quotes to teh database.'''
 

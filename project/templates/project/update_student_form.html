@@ -1,4 +1,4 @@
-<!-- templates/update_profile_form.html-->
+<!-- templates/update_student_form.html-->
 {% extends 'project/base.html' %}
 
 {% block content %}
@@ -8,6 +8,7 @@
 
 {% load crispy_forms_tags %}
 
+<!-- Use crispy form / got helped from online source & bootstrap-->
 <form method = 'POST' nonvalidate>
     {% csrf_token %}
     {{ form|crispy }}

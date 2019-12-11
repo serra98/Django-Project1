@@ -40,12 +40,13 @@ class HomePageView(ListView):
     template_name = 'project/home.html'
     context_object_name = 'home_list'
     
+#create
 class CreateStudentView(CreateView):
     '''A view to create a new quote and save it to tjhe database'''
 
     form_class = CreateStudentForm
     template_name = 'project/create_student_form.html'
-
+#update
 class UpdateStudentView(UpdateView):
     '''A view to update a new quote and save it to tjhe database'''
 
@@ -53,6 +54,7 @@ class UpdateStudentView(UpdateView):
     template_name = 'project/update_student_form.html'
     queryset = Student.objects.all()
 
+#Delete
 class DeleteStudentView(DeleteView):
     '''A view to update a new quote and save it to tjhe database'''
 
