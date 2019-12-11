@@ -1,0 +1,28 @@
+<!-- templates/delete_student.html-->
+{% extends 'project/base.html' %}
+
+
+{% block content %}
+
+
+<h2 style="font-style: oblique; font-size: 50px;"> Are you sure you want to delete/sign out? </h2>
+<h3 style="color: brown;"> You should only delete the profile when admin gives you access. </h3>
+<h4> Only two cases to delete the profile: </h4>
+<ul>
+    <li> User accidentally put wrong student ID or Name. </li>
+    <li> Only if user has returned the laptop and got signature by admin to sign out the rental. </li>
+
+</ul>
+{{show_student_page}}
+
+
+<form method = 'POST'>
+    {% csrf_token %}
+    <input type = "submit" name = "yes" value = "sign out!">
+</form>
+
+<form method='GET' action = "{% url 'show_student_page' student.pk %}">
+        {% csrf_token %}
+        <input type = "submit" name = "no" value = "Let's Keep!">
+</form>
+{% endblock %}

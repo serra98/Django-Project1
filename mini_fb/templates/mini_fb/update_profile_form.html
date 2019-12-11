@@ -1,0 +1,26 @@
+<!-- templates/update_profile_form.html-->
+{% extends 'mini_fb/base.html' %}
+
+{% block content %}
+
+<h2>Update a  profile</h2>
+
+<form method = 'POST'  action="/mini_fb/profile/{{profile.pk}}/update">
+    {% csrf_token %}
+    <!-- {{form}} -->
+    <table>
+        {% for field in form %}
+        <tr>
+            <th> {{field.name}}</th>
+            <td> {{field}} </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td>
+            <td>
+                <input type = "submit" name = "Update profile!" value ="update profile!">
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

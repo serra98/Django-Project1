@@ -1,0 +1,41 @@
+<!-- templates/show_all_laptops.html-->
+
+{% extends 'project/base.html' %}
+
+{% block content %}
+<h1 style="font-style: oblique; background-color: darkred; color:white">BU Tech Rental</h1>
+
+<h2 style="font-style: oblique;">List of Laptops for Rental</h2>
+
+<!-- scriplet code to display the value of the variables 'all_laptop_list'
+-->
+
+
+  
+<ul>
+    <table>
+            <colgroup>
+                <col span = "1" style="width: 45%;">
+                <col span = "1" style="width: 40%;">
+                <col span = "1" style="width: 40%;">
+            </colgroup>
+            <tr style="background-color: #d34343;">
+                <th style="font-size: large;"> <center> Image </center> </th>
+                <th style="font-size: large;"><center>Model Name</center></th>
+                <th style="font-size: large;"><center>Cost Per Month</center></th>
+            </tr>
+            {% for x in all_laptop_list %} 
+
+            <tr>
+                <td><center><img src="{{x.model_url}}" style="max-width: 200; height:200;"> </center> </td>
+                <td><center> <a href = "{% url 'show_laptop_page' x.pk %}"><strong>{{x.model_name}}</strong> </a> </center></td>
+                <td><center> {{x.cost}} </center></td>
+            </tr>
+            {% endfor %}
+    </table>
+</ul>
+
+
+   
+
+{% endblock %}

@@ -1,0 +1,100 @@
+<!-- templates/show_profile_page.html-->
+
+{% extends 'mini_fb/base.html' %}
+
+{% block content %}
+<a href = "{% url 'update_profile' profile.pk %}">Edit this profile</a> 
+<a href = "{% url 'news_feed' profile.pk %}">Click for News Feed</a> 
+<a href = "{% url 'show_possible_friends' profile.pk %}">Show Possible friends</a> 
+
+<center>
+<h1> {{profile.first_name}} {{profile.last_name}} </h1>
+<h3> {{profile.home_town}} </h3>
+ <img src="{{profile.prof_url}}" style="max-width: 400;">  
+</center>
+
+
+<!-- {{mini_fb.profile.get_status_message}}-->
+
+<h3> Status Messages </h3>
+
+<ul>
+
+        <table>
+                <colgroup>
+                    <col span = "1" style="width: 30%;">
+                    <col span = "1" style="width: 45%;">
+                    <col span = "1" style="width: 25%;">
+                </colgroup>
+                <tr>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Person</th>
+                </tr>
+
+
+                {% for status in profile.get_status_messages %}
+                <tr>
+                    <center>
+                    <td> {{status.timestamp}} </td>
+                    <td> {{status.message}}</td>
+                    <td> {{status.profile}} </td>
+                    {% if status.image %}
+                    <td><img src='{{status.image.url}}' style='max-width: 600;'></td>
+                    {% endif %} 
+                    </center>
+                    <td> <a href = "{% url 'delete_status' profile_pk=profile.pk status_pk=status.pk %}" >Delete</a> </td>
+                </tr>
+                {% endfor %}
+        </table>
+    </ul>
+
+    <h4>Post a status message</h4>
+
+    <form method = 'POST' action = '/mini_fb/profile/{{profile.pk}}/post_status' enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- {{form}} -->
+        <table>
+            {% for field in create_status_form %}
+            <tr>
+                <th> {{field.name}}</th>
+                <td> {{field}} </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td>
+                    <input type = "submit" name = "share!" value ="share!">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <h4> Friends </h4>
+    
+        <ul>
+                <table>
+                        <colgroup>
+                            <col span = "1" style="width: 30%;">
+                            <col span = "1" style="width: 30%;">
+                        </colgroup>
+                        <tr>
+                            <th>Name</th>
+                            <th>Image</th>
+                        </tr>
+                        {% if profile.get_friends %}
+                        {% for x in profile.get_friends %} 
+                            <tr>
+                                <td><center> <a href = "{% url 'show_profile_page' x.pk %}">{{x.first_name}} {{x.last_name}}</a> </center></td>
+                                <td><img src="{{x.prof_url}}" style="max-width: 200;">  </td>
+                            </tr>
+
+                        {% endfor %}
+                        {% else %}
+                        {{profile.first_name}} doesn't have any friends.
+                        {% endif %}
+                </table>
+            </ul>
+
+{% endblock %}
+

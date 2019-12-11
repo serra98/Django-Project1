@@ -1,0 +1,21 @@
+<!-- templates/show_profile_page.html-->
+
+{% extends 'project/base.html' %}
+
+
+{% block content %}
+
+<h2 style="font-style: oblique;font-size:150px;  background-color: darkred; color:white">  <center> Welcome To <a style= "color:white"  href="http://www.bu.edu/">BU</a> Tech Rental </center></h2>
+<h4 style = "font-size:70px ; color:brown"><center> CLICK the above navigations to look at the <strong><a style= "color:rgb(97, 23, 23)" href="{% url 'create_student' %}">list of laptops</a> , <a style= "color:rgb(97, 23, 23)" href="{% url 'rental_page' %}">rental history</a>, and <a style= "color:rgb(97, 23, 23)" href="{% url 'show_all_laptops' %}">register to rent!</a> </strong> </center></h4>
+
+<br>
+<br>
+<h2> <center> Questions? Inquiries? </center></h2>
+<h5> <center> You can email us! <a style =" color: brown" href ="mailto:serra621@bu.edu"> Click Here to write an email</a></center></h5>
+
+        <p> <img src="https://i.pinimg.com/originals/21/11/bf/2111bfe5254fc4a36086765cb95e1c2a.jpg" width = 400 height = 450 alt="BU Rhett">
+        </p>
+
+<h7 style = "color:brown"> published by Serra Jung (CS108)</h7>
+{% endblock %}
+

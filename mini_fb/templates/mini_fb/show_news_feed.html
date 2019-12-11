@@ -1,0 +1,35 @@
+<!-- templates/show_news_feed.html-->
+
+{% extends 'mini_fb/base.html' %}
+
+{% block content %}
+
+<a href = "{% url 'show_profile_page' profile.pk %}">Back to Profile {{profile.first_name}} page</a> 
+
+<h1> {{profile.first_name}}'s News Feed </h1>
+
+<ul>
+    <table>
+            <colgroup>
+                <col span = "1" style="width: 30%;">
+                <col span = "1" style="width: 30%;">
+                <col span = "1" style="width: 30%;">
+                <col span = "1" style="width: 30%;">
+            </colgroup>
+            <tr>
+                <th>Time</th>
+                <th>Name</th>
+                <th>Profile Image</th>
+                <th>Status</th>
+            </tr>
+            {% for x in profile.get_news_feed %} 
+                <tr>
+                    <td> <center>{{x.timestamp}}  </center></td>
+                    <td><center><a href = "{% url 'show_profile_page' x.pk %}">{{x.profile.first_name}} {{x.profile.last_name}}</a> </center></td>
+                    <td><center><img src="{{x.profile.prof_url}}" style="max-width: 200;"> </center> </td>
+                    <td> {{x.message}} </td>
+                </tr>
+            {% endfor %}
+    </table>
+</ul>
+{% endblock %}

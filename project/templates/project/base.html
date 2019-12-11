@@ -1,0 +1,62 @@
+
+<!-- templates/base.html-->
+<!-- got the styling sheet from bootstrap -->
+<html>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+#nav1{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: darkred;
+}
+
+#nav{
+  float: left;
+  font-style: oblique;
+}
+
+#nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+#nav a:hover {
+  background-color: rgb(107, 39, 39);
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+    <body>
+
+            <header>
+
+                    <ul id="nav1">
+                            <li id="nav"><a href="{% url 'home' %}">Home</a></li>
+                            <li id="nav"><a href="{% url 'show_all_laptops' %}">Available Laptops</a></li>
+                            <li id="nav"><a href="{% url 'create_student' %}">Register to Rent</a></li>
+                            <li id="nav"><a href="{% url 'rental_page' %}">Rental History</a></li>
+                    </ul>
+                    
+                    
+            </header>
+            
+                
+            
+                {% block content %}
+                    
+
+                {% endblock %}
+            
+
+    </body>
+</html>

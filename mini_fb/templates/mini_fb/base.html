@@ -1,0 +1,23 @@
+
+<!-- templates/base.html-->
+<html>
+    <body>
+
+            <header>
+                    <a href = "{% url 'show_all_profiles' %}">Home</a>
+                    <a href = "{% url 'create_profile' %}">Add_New_Profile</a> 
+                    
+                    <h1>Mini Facebook</h1>
+                </header>
+            
+            
+                
+            
+                {% block content %}
+            
+                {% endblock %}
+            
+
+    </body>
+</html>
+    

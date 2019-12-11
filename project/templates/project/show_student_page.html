@@ -1,0 +1,21 @@
+<!-- templates/show_profile_page.html-->
+
+{% extends 'project/base.html' %}
+
+{% block content %}
+<h1 style="font-style: oblique; background-color: darkred; color:white">BU Tech Rental</h1>
+
+<a style= "color: crimson" href = "{% url 'update_student' student.pk %}"> <strong> Edit </strong>this student profile </a> 
+<a style= "color: crimson" href = "{% url 'delete_student' student.pk %}"> <strong> Delete </strong> this student profile </a>
+<center>
+<h1> Student Name: {{student.name}} </h1>
+<h3> Student ID: {{student.student_id}} </h3>
+<h3> Email: {{student.email}} </h3>
+<h3> Phone number: {{student.phone}} </h3>
+<h3> Rental Start Date: {{student.dateIn}} </h3>
+<h3> Rental Deadline: {{student.dateOut}} </h3>
+<h3> Laptop name: {{student.laptop.model_name}}</h3>
+<h3> Laptop Rental ID: {{student.laptop.id}} </h3>
+</center>
+
+{% endblock %}
