@@ -13,6 +13,7 @@ class Laptop(models.Model):
     model_id = models.TextField(blank = True)
     cost = models.TextField(blank = True)
     model_url = models.URLField(blank = True)
+    description = models.TextField(blank = True)
 
     def __str__(self):
         '''return in string format of the object'''
