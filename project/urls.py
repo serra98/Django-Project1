@@ -4,6 +4,7 @@
 from django.urls import path 
 from .views import ShowAllLaptopsView , DeleteStudentView, ShowLaptopPageView , ShowStudentPageView, UpdateStudentView, HomePageView,  CreateStudentView , ShowAllRentalPageView #our view class definition
 
+#urls for every pages 
 urlpatterns = [
     path('laptop',ShowAllLaptopsView.as_view(), name='show_all_laptops'), 
     path('laptop/<int:pk>',ShowLaptopPageView.as_view(), name='show_laptop_page' ),
